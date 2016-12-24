@@ -22,6 +22,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     controller: 'AboutCtrl as about',
     templateUrl: 'about.html',
     title: 'About'
+  })
+  .state('Contact', {
+    url: '/contact',
+    controller: 'ContactCtrl as contact',
+    templateUrl: 'contact.html',
+    title: 'Contact Us'
   });
 
   $urlRouterProvider.otherwise('/');
