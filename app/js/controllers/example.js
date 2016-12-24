@@ -5,7 +5,6 @@ function ExampleCtrl() {
 
   vm.title = 'AngularJS, Gulp, and Browserify! Written with keyboards and love!';
   vm.number = 1234;
-
 }
 
 export default {
