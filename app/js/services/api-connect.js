@@ -10,7 +10,6 @@ function ApiConnect($http) {
    */
 
   service.getRequest = (url, type, data) => {
-    console.log(url);
     return $http({
         method: type || 'GET',
         url: url,

@@ -1,22 +1,23 @@
-function AboutCtrl(ApiConnect) {
+function AboutCtrl(ApiConnect, $scope) {
 	'ngInject';
 
   // ViewModel
   const vm = this;
 
-  vm.getCollaborators = () => {
-  	let userData = {};
+  $scope.getCollaborators = () => {
+    let userData = {};
   	
   	ApiConnect.getRequest('https://api.github.com/repos/octokit/octokit.rb')
-  		.then((response) => { userData = response.data;})
+  		.then((response) => { 
+        userData = response.data;
+        ApiConnect.getRequest(userData.contributors_url)
+          .then((response) => {
+            $scope.contributors = response.data;
+          })
+          .catch((response) => { console.error('Ooops, something wen\'t wrong getting', response) });
+      })
   		.catch((response) => { console.error('Ooops, something wen\'t wrong getting User Data', response) });
-
-  	ApiConnect.getRequest(userData.collaborators_url)
-  		.then((response) => {console.log(response.data)})
-  		.catch((response) => { console.error('Ooops, something wen\'t wrong getting', response) });
   };
-
-
 
   vm.title = 'About US page ...';
   vm.description = 'Some text here ...';

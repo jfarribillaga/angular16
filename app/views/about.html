@@ -1,5 +1,12 @@
 <div class="about-us">
 	<h1>{{about.title}}</h1>
-	<p>A ver si anda esta {{about.description}}</p>
-	<button ng-click="alert()">Get Github Collaborators</button>
+	<p >A ver si anda esta {{about.description}}</p>
+	<button ng-click="getCollaborators();">Get Collabs</button>
+	<ul class="contributors">
+		<li ng-repeat="(key, value) in contributors">
+			<img style="width: 40px; display:inline-block;" src="{{value.avatar_url}}"/>
+			<span>Contributions: {{value.contributions}}</span>
+			<span>User: {{value.login}}</span>
+		</li>
+	</ul>
 </div>
