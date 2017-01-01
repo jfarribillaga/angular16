@@ -65,7 +65,6 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-notify": "^2.0.0",
     "gulp-protractor": "^3.0.0",
-    "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-sass-glob": "^1.0.6",
     "gulp-sourcemaps": "^1.6.0",

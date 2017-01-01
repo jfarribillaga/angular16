@@ -1,4 +1,4 @@
-function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider) {
+function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider, AppSettings) {
   'ngInject';
 
   if (process.env.NODE_ENV === 'production') {
@@ -9,27 +9,10 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     enabled: true,
     requireBase: false
   });
-
-  $stateProvider
-  .state('Home', {
-    url: '/',
-    controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
-    title: 'Home'
-  })
-  .state('About', {
-    url: '/about',
-    controller: 'AboutCtrl as about',
-    templateUrl: 'about.html',
-    title: 'About'
-  })
-  .state('Contact', {
-    url: '/contact',
-    controller: 'ContactCtrl as contact',
-    templateUrl: 'contact.html',
-    title: 'Contact Us'
-  });
-
+  
+  for (let key in AppSettings.stateRoutes) {
+    $stateProvider.state(key, AppSettings.stateRoutes[key]);
+  }
   $urlRouterProvider.otherwise('/');
 
 }

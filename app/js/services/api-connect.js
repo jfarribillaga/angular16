@@ -9,11 +9,11 @@ function ApiConnect($http) {
    * @returns {Promise}
    */
 
-  service.getRequest = (url, type, data) => {
+  service.getRequest = (url, type = 'GET', data = '') => {
     return $http({
-        method: type || 'GET',
+        method: type,
         url: url,
-        data: data ? data : '',
+        data: data,
         cache: false
     });
   };
