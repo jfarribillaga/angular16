@@ -9,7 +9,7 @@
 		<li ng-repeat="(key, value) in contributors" class="col-sm-4">
 			<img src="{{value.avatar_url}}"/>
 			<div><strong>Contributions:</strong> {{value.contributions}}</div>
-			<div><strong>User:</strong> {{value.login}}</div>
+			<div><strong>User:</strong><a ng-href="{{value.html_url}}" target="_blank"> {{value.login}}</a></div>
 		</li>
 	</ul>
 </div>
