@@ -1,0 +1,44 @@
+.builditem-directive {
+		border: 1px solid;
+		margin-bottom: 8px;
+		padding-top: 5px;
+
+		i {
+			font-size: 36px;
+			color: white;
+		}
+
+		.state {
+			font-weight: bold;
+			&.pending {
+				color: $color-pending
+			}
+			&.running {
+				color: $color-running	
+			}
+			&.rejected {
+				color: $color-rejected
+			}
+			&.complete, &.accepted {
+				color: $color-complete
+			}
+		}
+
+		&.pending {
+			border-color: $color-pending;
+			@include gradient-horizontal($color-pending, white);
+		}
+		&.running {
+			border-color: $color-running;
+			@include gradient-horizontal($color-running, white);
+		}
+		&.rejected {
+			border-color: $color-rejected;
+			@include gradient-horizontal($color-rejected, white);
+		}
+
+		&.complete, &.accepted {
+			border-color: $color-complete;
+			@include gradient-horizontal($color-complete, white);
+		}
+}

@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'typography';
-@import 'about';
+@import 'mixins';
+@import 'directives/_builditem';
 
 body {
   color: $font-color--dark;

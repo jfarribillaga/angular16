@@ -1,0 +1,35 @@
+<h1 class="heading -large">{{dashboard.title}}</h1>
+<div class="container">
+	<!-- Main Dashboard Table -->
+	<div class="mainTable">
+		<div class="heading row text-center">
+			<div class="col-md-1 text-left">
+				<button type="button" class="btn btn-info" aria-label="Left Align" ng-click="getDashboardInfo()">
+  				<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="col-md-3">Changelist/Build</div>
+			<div class="col-md-1">Owner</div>
+			<div class="col-md-2">Time Started</div>
+			<div class="col-md-1">State</div>
+			<div class="col-md-1">Metrics</div>
+			<div class="col-md-1">Build</div>
+			<div class="col-md-1">Unit Test</div>
+			<div class="col-md-1">Functional Test</div>
+		</div>
+		<div class="body">
+			<div ng-repeat="(key, value) in buildItems | orderBy: '-ts'" 
+				builditem-directive name="{{value.name}}" 
+				owner="{{value.owner}}" 
+				timestamp="{{value.ts | date:'MM/dd/yyyy h:mma'}}" 
+				state="{{dashboard.states[value.state - 1].name}}"
+				statecolor="{{dashboard.states[value.state - 1].color}}"
+				metrics="{{value.values.metrics}}"
+				build="{{value.values.build}}"
+				unit="{{value.values.unit}}"
+				functional="{{value.values.functional}}"
+				type="{{value.type}}"
+				class="row text-center"></div>
+		</div>
+	</div>
+</div>

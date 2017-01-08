@@ -1,27 +1,16 @@
 const stateRoutes = {
-		Home: {
-			url: '/',
-			controller: 'ExampleCtrl as home',
-			templateUrl: 'home.html',
-			title: 'Home'
-		}, 
-		About: {
-			url: '/about',
-			controller: 'AboutCtrl as about',
-			templateUrl: 'about.html',
-			title: 'About'
-		}, 
-		Contact: {
-			url: '/contact',
-			controller: 'ContactCtrl as contact',
-			templateUrl: 'contact.html',
-			title: 'Contact Us'
-		}
+	Dashboard: {
+		url: '/',
+		controller: 'DashboardCtrl as dashboard',
+		templateUrl: 'dashboard.html',
+		title: 'Application Dashboard'
+	}
 };
 
 const AppSettings = {
-  appTitle: 'Example Application',
-  apiUrl: '/api/v1',
+  appTitle: 'CO Test',
+  // apiUrl: 'https://buildservices.herokuapp.com/',
+  apiUrl: 'http://localhost:1338/',
   stateRoutes
 };
 
