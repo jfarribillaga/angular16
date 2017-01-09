@@ -1,0 +1,8 @@
+<div class="arrowsbox-directive box">
+	<div>{{metrics.name}}</div>
+	<div class="row">
+		<div class="progress">
+	  		<div class="progress-bar progress-bar-striped" ng-class="{'progress-bar-danger' : specs.test<50, 'progress-bar-warning' :specs.test<100, 'progress-bar-success' : specs.test==100}" role="progressbar"  style="width: {{specs.test}}%;" aria-valuenow="{{specs.test}}" aria-valuemin="0" aria-valuemax="100">{{specs.test}}%</div>
+	  	</div>
+	</div>
+</div>

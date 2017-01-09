@@ -1,27 +1,37 @@
-<div class="row builditem-directive {{state | lowercase }}">
-  <div class="col-md-1"><i class="fa" ng-class="{'fa-tasks':type==1,'fa-desktop':type==2}" aria-hidden="true"></i></div>
-  <div class="col-md-3 text-left">{{name}}</div>
-	<div class="col-md-1">{{owner}}</div>
-	<div class="col-md-2">{{timestamp}}</div>
-	<div class="col-md-1 state {{state | lowercase}}">{{state | uppercase}}</div>
-	<div class="col-md-1">
-  	<div class="progress">
-  		<div class="progress-bar progress-bar-striped" ng-class="{'progress-bar-danger' : metrics<50, 'progress-bar-warning' : metrics<100, 'progress-bar-success' : metrics==100}" role="progressbar"  style="width: {{metrics}}%;" aria-valuenow="{{metrics}}" aria-valuemin="0" aria-valuemax="100">{{metrics}}%</div>
-  	</div>
-  </div>
-	<div class="col-md-1">
-		<div class="progress">
-  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : build<50, 'progress-bar-warning' : build<100, 'progress-bar-success' : build==100}" role="progressbar"  style="width: {{build}}%;" aria-valuenow="{{build}}" aria-valuemin="0" aria-valuemax="100">{{build}}%</div>
-  	</div>
+<div class="builditem-directive {{state | lowercase }}">
+  <div class="shortDetails row">
+	  <div class="col-md-1"><i class="fa" ng-class="{'fa-tasks':type==1,'fa-desktop':type==2}" aria-hidden="true"></i></div>
+	  <div class="col-md-3 text-left">{{name}}</div>
+		<div class="col-md-1">{{owner}}</div>
+		<div class="col-md-2">{{timestamp}}</div>
+		<div class="col-md-1 state {{state | lowercase}}">{{state | uppercase}}</div>
+		<div class="col-md-1">
+	  	<div class="progress">
+	  		<div class="progress-bar progress-bar-striped" ng-class="{'progress-bar-danger' : metrics<50, 'progress-bar-warning' : metrics<100, 'progress-bar-success' : metrics==100}" role="progressbar"  style="width: {{metrics.overall}}%;" aria-valuenow="{{metrics.overall}}" aria-valuemin="0" aria-valuemax="100">{{metrics.overall}}%</div>
+	  	</div>
+	  </div>
+		<div class="col-md-1">
+			<div class="progress">
+	  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : build<50, 'progress-bar-warning' : build<100, 'progress-bar-success' : build==100}" role="progressbar"  style="width: {{build}}%;" aria-valuenow="{{build}}" aria-valuemin="0" aria-valuemax="100">{{build}}%</div>
+	  	</div>
+		</div>
+		<div class="col-md-1">
+			<div class="progress">
+	  		<div class="progress-bar progress-bar-striped bg-success"  ng-class="{'progress-bar-danger' : unit<50, 'progress-bar-warning' : unit<100, 'progress-bar-success' : unit==100}" role="progressbar"  style="width: {{unit}}%;" aria-valuenow="{{unit}}" aria-valuemin="0" aria-valuemax="100">{{unit}}%</div>
+	  	</div>
+		</div>
+		<div class="col-md-1">
+			<div class="progress">
+	  		<div class="progress-bar progress-bar-striped bg-success"  ng-class="{'progress-bar-danger' : functional<50, 'progress-bar-warning' : functional<100, 'progress-bar-success' : functional==100}" role="progressbar"  style="width: {{functional}}%;" aria-valuenow="{{functional}}" aria-valuemin="0" aria-valuemax="100">{{functional}}%</div>
+	  	</div>
+		</div>
 	</div>
-	<div class="col-md-1">
-		<div class="progress">
-  		<div class="progress-bar progress-bar-striped bg-success"  ng-class="{'progress-bar-danger' : unit<50, 'progress-bar-warning' : unit<100, 'progress-bar-success' : unit==100}" role="progressbar"  style="width: {{unit}}%;" aria-valuenow="{{unit}}" aria-valuemin="0" aria-valuemax="100">{{unit}}%</div>
-  	</div>
+
+	<div class="row moreDetails text-left">
+		<div arrowsbox-directive name="Metrics" specs="{{metrics.specs}}" class="col-md-3"></div>
+		<div buildbox-directive name="Build" class="col-md-3"></div>
+		<div chartbox-directive name="Unit Test" class="col-md-3"></div>
+		<div chartbox-directive name="Functional Test" class="col-md-3"></div>
 	</div>
-	<div class="col-md-1">
-		<div class="progress">
-  		<div class="progress-bar progress-bar-striped bg-success"  ng-class="{'progress-bar-danger' : functional<50, 'progress-bar-warning' : functional<100, 'progress-bar-success' : functional==100}" role="progressbar"  style="width: {{functional}}%;" aria-valuenow="{{functional}}" aria-valuemin="0" aria-valuemax="100">{{functional}}%</div>
-  	</div>
-	</div>
+
 </div>
