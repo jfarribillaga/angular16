@@ -3,6 +3,8 @@ function DashboardCtrl(ApiConnect, Storage, AppSettings, $scope) {
 
   // ViewModel
   const vm = this;
+  let buildItems = [];
+  let previousItemSelected = null;
 
   function getTypes() {
     ApiConnect.getRequest(AppSettings.apiUrl + 'types/')
