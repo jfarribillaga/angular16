@@ -1,8 +1,23 @@
 <div class="arrowsbox-directive box">
-	<div>{{metrics.name}}</div>
-	<div class="row">
+	<div>{{specs.name}}</div>
+		<label>Test</label>
 		<div class="progress">
-	  		<div class="progress-bar progress-bar-striped" ng-class="{'progress-bar-danger' : specs.test<50, 'progress-bar-warning' :specs.test<100, 'progress-bar-success' : specs.test==100}" role="progressbar"  style="width: {{specs.test}}%;" aria-valuenow="{{specs.test}}" aria-valuemin="0" aria-valuemax="100">{{specs.test}}%</div>
-	  	</div>
-	</div>
+	  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : specs.test<50, 'progress-bar-warning' : specs.test<100, 'progress-bar-success' : specs.test==100}"
+	  		role="progressbar"  style="width: {{specs.test}}%;" aria-valuenow="{{specs.test}}" aria-valuemin="0" aria-valuemax="100">{{specs.test}}%</div>
+	  </div>
+	  <label>Maintanability</label>
+	  <div class="progress">
+	  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : specs.maintainability<50, 'progress-bar-warning' : specs.maintainability<100, 'progress-bar-success' : specs.maintainability==100}"
+	  		role="progressbar"  style="width: {{specs.maintainability}}%;" aria-valuenow="{{specs.maintainability}}" aria-valuemin="0" aria-valuemax="100">{{specs.maintainability}}%</div>
+	  </div>
+	  <label>Security</label>
+	  <div class="progress">
+	  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : specs.security<50, 'progress-bar-warning' : specs.security<100, 'progress-bar-success' : specs.security==100}"
+	  		role="progressbar"  style="width: {{specs.security}}%;" aria-valuenow="{{specs.security}}" aria-valuemin="0" aria-valuemax="100">{{specs.security}}%</div>
+	  </div>
+	  <label>Workmanship</label>
+	  <div class="progress">
+	  		<div class="progress-bar progress-bar-striped"  ng-class="{'progress-bar-danger' : specs.workmanship<50, 'progress-bar-warning' : specs.workmanship<100, 'progress-bar-success' : specs.workmanship==100}"
+	  		role="progressbar"  style="width: {{specs.workmanship}}%;" aria-valuenow="{{specs.workmanship}}" aria-valuemin="0" aria-valuemax="100">{{specs.workmanship}}%</div>
+	  </div>
 </div>

@@ -1,15 +1,15 @@
-function DashboardCtrl(ApiConnect, AppSettings, $scope) {
+function DashboardCtrl(ApiConnect, Storage, AppSettings, $scope) {
 	'ngInject';
 
   // ViewModel
   const vm = this;
-  let buildItems = [];
-  let previousItemSelected = null;
 
   function getTypes() {
     ApiConnect.getRequest(AppSettings.apiUrl + 'types/')
       .then((response) => {
         vm.types = response.data;
+        Storage.storeLocal('types', response.data);
+
       })
       .catch((response) => { console.error('Ooops, something wen\'t wrong getting types', response) });
   };
@@ -18,6 +18,7 @@ function DashboardCtrl(ApiConnect, AppSettings, $scope) {
     ApiConnect.getRequest(AppSettings.apiUrl + 'states/')
       .then((response) => {
         vm.states = response.data;
+        Storage.storeLocal('states', response.data);
       })
       .catch((response) => { console.error('Ooops, something wen\'t wrong getting States', response) });
   }
@@ -26,42 +27,18 @@ function DashboardCtrl(ApiConnect, AppSettings, $scope) {
     ApiConnect.getRequest(AppSettings.apiUrl + 'dashboard/')
       .then((response) => {
         $scope.buildItems = buildItems = response.data;
+        Storage.storeSession('buildItems', response.data);
       })
       .catch((response) => { console.error('Ooops, something wen\'t wrong getting Dashboard', response); vm.dashboardError = true});
   }
 
-  $scope.$on('calling', (event, data) => {
-    $scope.$broadcast('callothers', data);
-  });
-
-  $scope.$on('toogle', (event, data) => {
-      let i = 0;
-      let size = buildItems.length;
-      const selectedItem = parseInt(data.itemid, 10);
-
-      console.log(data);
-      console.log($scope.buildItems);
-
-      //Previous item set to false.
-      if (previousItemSelected !== null) {
-        //previous item was selected and variable set.
-        for (i; i < size; ++i) {
-          if ($scope.buildItems[i].id === previousItemSelected) {
-            $scope.buildItems[i].opened = false;
-          }
-          break;
-        }  
+  $scope.$on('toogle', (event, actualIndex) => {
+      let previouslySelectedItem = Storage.getSession('previousItem');
+      if (typeof previouslySelectedItem !== void 0) {
+        $scope.buildItems[previouslySelectedItem].opened = false;
       }
-
-      for (i = 0; i < size; ++i) {
-        if ($scope.buildItems[i].id === selectedItem) {
-          $scope.buildItems[i].opened = true;
-          previousItemSelected = selectedItem;
-          break;
-        }
-      }
-
-      // $scope.buildItems = buildItems;
+      Storage.storeSession('previousItem', actualIndex);
+      $scope.buildItems[actualIndex].opened = true;
       $scope.$apply();
   });
 

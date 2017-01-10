@@ -1,14 +1,18 @@
-function ArrowsboxDirective() {
+function ArrowsboxDirective(Storage) {
+  'ngInject';
 
   return {
-    restrict: 'E',
+    restrict: 'A',
     templateUrl: 'directives/arrowsBox.html',
+    transclude: true,
     scope: {
-      specs: '='
+      index: '@'
     },
     link: (scope, element) => {
-      console.log(scope.specs)
-      element.bind('click', () => { alert('clicked')});
+      const buildItems = Storage.getSession('buildItems');
+      const selectedItem = buildItems[scope.index];
+      scope.specs = selectedItem.values.metrics.specs;
+      element.bind('click', (event) => {event.stopPropagation(); console.log('Show Modal !');});
     }
   };
 }

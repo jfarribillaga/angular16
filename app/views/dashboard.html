@@ -18,20 +18,7 @@
 			<div class="col-md-1">Functional Test</div>
 		</div>
 		<div class="body">
-			<div ng-repeat="(key, value) in buildItems | orderBy: '-ts'" builditem-directive 
-				itemid="{{value.id}}"
-				name="{{value.name}}" 
-				owner="{{value.owner}}" 
-				timestamp="{{value.ts | date:'MM/dd/yyyy h:mma'}}" 
-				state="{{dashboard.states[value.state - 1].name}}"
-				statecolor="{{dashboard.states[value.state - 1].color}}"
-				metrics="{{value.values.metrics}}"
-				build="{{value.values.build}}"
-				unit="{{value.values.unit}}"
-				functional="{{value.values.functional}}"
-				type="{{value.type}}"
-				opened="{{value.opened}}"
-				class="row text-center"></div>
+			<div ng-repeat="(key, value) in buildItems | orderBy: '-ts'" builditem-directive index="{{key}}" type={{value.type}} class="row text-center"></div>
 		</div>
 	</div>
 </div>
