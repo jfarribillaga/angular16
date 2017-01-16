@@ -3,8 +3,6 @@ function DashboardCtrl(ApiConnect, Storage, AppSettings, $scope) {
 
   // ViewModel
   const vm = this;
-  let buildItems = [];
-  let previousItemSelected = null;
 
   function getTypes() {
     ApiConnect.getRequest(AppSettings.apiUrl + 'types/')
@@ -25,27 +23,28 @@ function DashboardCtrl(ApiConnect, Storage, AppSettings, $scope) {
       .catch((response) => { console.error('Ooops, something wen\'t wrong getting States', response) });
   }
 
-  $scope.getDashboardInfo = () => {
-    ApiConnect.getRequest(AppSettings.apiUrl + 'dashboard/')
-      .then((response) => {
-        $scope.buildItems = buildItems = response.data;
-        Storage.storeSession('buildItems', response.data);
-      })
-      .catch((response) => { console.error('Ooops, something wen\'t wrong getting Dashboard', response); vm.dashboardError = true});
-  }
-
-  $scope.$on('toogle', (event, actualIndex) => {
+  function onToogle(event, actualIndex) {
       let previouslySelectedItem = Storage.getSession('previousItem');
-      if (typeof previouslySelectedItem !== void 0) {
+      if (typeof previouslySelectedItem !== 'undefined') {
         $scope.buildItems[previouslySelectedItem].opened = false;
       }
       Storage.storeSession('previousItem', actualIndex);
       $scope.buildItems[actualIndex].opened = true;
       $scope.$apply();
-  });
+  }
+
+  $scope.getDashboardInfo = () => {
+    ApiConnect.getRequest(AppSettings.apiUrl + 'dashboard/')
+      .then((response) => {
+        $scope.buildItems = response.data;
+        Storage.storeSession('buildItems', response.data);
+      })
+      .catch((response) => { console.error('Ooops, something wen\'t wrong getting Dashboard', response); vm.dashboardError = true});
+  }
+
+  $scope.$on('toogle', onToogle);
 
   vm.title = 'Dashboard';
-  vm.dashboardError = false;
   getTypes();
   getStates();
   $scope.getDashboardInfo();

@@ -67,3 +67,4 @@ export default {
   name: 'Storage',
   fn: Storage
 };
+  

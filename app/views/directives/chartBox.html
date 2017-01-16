@@ -1,3 +1,8 @@
 <div class="chartbox-directive box">
 	<div>{{name}}</div>
+	<div id="piechart-{{name}}-{{index}}"></div>
+	<label>Code Covered</label>
+	<div class="progress">
+		<div class="progress-bar progress-bar-striped bg-success" role="progressbar"  style="width: {{specs.coverage}}%;" aria-valuenow="{{specs.coverage}}" aria-valuemin="0" aria-valuemax="100">{{specs.coverage}}%</div>
+	</div>
 </div>

@@ -9,8 +9,8 @@ const stateRoutes = {
 
 const AppSettings = {
   appTitle: 'CO Test',
-  // apiUrl: 'https://buildservices.herokuapp.com/',
-  apiUrl: 'http://localhost:1338/',
+  apiUrl: 'https://buildservices.herokuapp.com/',
+  // apiUrl: 'http://localhost:1338/',
   stateRoutes
 };
 

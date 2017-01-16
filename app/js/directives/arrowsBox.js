@@ -6,7 +6,8 @@ function ArrowsboxDirective(Storage) {
     templateUrl: 'directives/arrowsBox.html',
     transclude: true,
     scope: {
-      index: '@'
+      index: '@',
+      name: '@'
     },
     link: (scope, element) => {
       const buildItems = Storage.getSession('buildItems');

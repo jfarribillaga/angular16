@@ -40,6 +40,10 @@ const karmaBaseConfig = {
 
   urlRoot: '/__karma__/',
 
+  client: {
+    captureConsole: true
+  },
+
   files: [
     // app-specific code
     'app/js/main.js',

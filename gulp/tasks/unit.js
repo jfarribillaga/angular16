@@ -7,7 +7,18 @@ gulp.task('unit', ['views'], function(cb) {
 
   new Server({
     configFile: path.resolve(__dirname, '../..', config.test.karma),
-    singleRun: true
+    singleRun: true,
+    autoWatch: false,
+  }, cb).start();
+
+});
+
+gulp.task('unit-live', ['views'], function(cb) {
+
+  new Server({
+    configFile: path.resolve(__dirname, '../..', config.test.karma),
+    singleRun: false,
+    autoWatch: true,
   }, cb).start();
 
 });

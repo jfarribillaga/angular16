@@ -7,7 +7,7 @@ function BuildboxDirective() {
       name: '@'
     },
     link: (scope, element) => {
-      element.bind('click', () => { alert('clicked')});
+      element.bind('click', (event) => {event.stopPropagation(); console.log('Show Modal !');});
     }
   };
 }
