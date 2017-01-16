@@ -33,7 +33,8 @@
     "unit-live": "cross-env NODE_ENV=test ./node_modules/.bin/gulp unit-live"
   },
   "dependencies": {
-    "cross-env": "^3.1.1"
+    "cross-env": "^3.1.1",
+    "ng-dialog": "^0.6.6"
   },
   "devDependencies": {
     "angular": "^1.5.0",

@@ -1,5 +1,12 @@
-function ArrowsboxDirective(Storage) {
+function ArrowsboxDirective(Storage, ngDialog) {
   'ngInject';
+
+  function showDialog(scope) {
+    ngDialog.open({
+      template: '<p>' + JSON.stringify(scope.specs) + '</p>',
+      plain: true
+});
+  };
 
   return {
     restrict: 'A',
@@ -13,7 +20,7 @@ function ArrowsboxDirective(Storage) {
       const buildItems = Storage.getSession('buildItems');
       const selectedItem = buildItems[scope.index];
       scope.specs = selectedItem.values.metrics.specs;
-      element.bind('click', (event) => {event.stopPropagation(); console.log('Show Modal !');});
+      element.bind('click', (event) => {event.stopPropagation(); showDialog(scope)});
     }
   };
 }

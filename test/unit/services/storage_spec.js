@@ -17,7 +17,7 @@ describe('Unit: StorageService', function() {
   });
 
   it('local storage test', function() {
-    service.storeLocal('test', {key: "objectTest"});
+    service.storeLocal('test', {key: 'objectTest'});
     expect(service.getLocal('test').key).toEqual('objectTest');
 
     service.storeLocal('test', "stringTest");

@@ -29,7 +29,7 @@ const karmaBaseConfig = {
       'bulkify',
       istanbul({
         instrumenter: isparta,
-        ignore: ['**/node_modules/**', '**/test/**']
+        ignore: ['**/node_modules/**', '**/test/**', '**/lib/**']
       })
     ]
   },
@@ -54,7 +54,6 @@ const karmaBaseConfig = {
     // test files
     'test/unit/**/*.js'
   ]
-
 };
 
 const customLaunchers = {
