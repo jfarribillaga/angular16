@@ -19,8 +19,6 @@ function BuilditemDirective(Storage) {
       const states = Storage.getLocal('states');
       const selectedItem = buildItems[scope.index];
 
-      console.log(buildItems);
-
       scope.name = selectedItem.name;
       scope.owner = selectedItem.owner;
       scope.timestamp = selectedItem.ts;
