@@ -31,6 +31,11 @@ export default {
     dest: 'build/lib'
   },
 
+  modals: {
+    src: 'app/modals/**/*',
+    dest: 'build/modals'
+  },
+
   fonts: {
     src: ['app/fonts/**/*'],
     dest: 'build/fonts'

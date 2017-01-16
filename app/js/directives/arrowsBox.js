@@ -5,7 +5,7 @@ function ArrowsboxDirective(Storage, ngDialog) {
     ngDialog.open({
       template: '<p>' + JSON.stringify(scope.specs) + '</p>',
       plain: true
-});
+    });
   };
 
   return {

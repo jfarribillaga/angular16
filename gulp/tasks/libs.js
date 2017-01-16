@@ -1,7 +1,6 @@
 import config      from '../config';
 import changed     from 'gulp-changed';
 import gulp        from 'gulp';
-import gulpif      from 'gulp-if';
 import browserSync from 'browser-sync';
 
 gulp.task('libs', function() {
