@@ -8,14 +8,14 @@
   				<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 				</button>
 			</div>
-			<div class="col-md-3">Changelist/Build</div>
-			<div class="col-md-1">Owner</div>
-			<div class="col-md-2">Time Started</div>
-			<div class="col-md-1">State</div>
-			<div class="col-md-1">Metrics</div>
-			<div class="col-md-1">Build</div>
-			<div class="col-md-1">Unit Test</div>
-			<div class="col-md-1">Functional Test</div>
+			<div class="col-md-3 hidden-xs">Changelist/Build</div>
+			<div class="col-md-1 hidden-xs">Owner</div>
+			<div class="col-md-2 hidden-xs">Time Started</div>
+			<div class="col-md-1 hidden-xs">State</div>
+			<div class="col-md-1 hidden-xs">Metrics</div>
+			<div class="col-md-1 hidden-xs">Build</div>
+			<div class="col-md-1 hidden-xs">Unit Test</div>
+			<div class="col-md-1 hidden-xs">Functional Test</div>
 		</div>
 		<div class="body">
 			<div ng-repeat="(key, value) in buildItems | orderBy: '-ts'" builditem-directive index="{{key}}" type={{value.type}} class="row text-center"></div>
